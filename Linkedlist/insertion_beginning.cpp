@@ -17,6 +17,7 @@ void traverse(node *ptr) // should pass the head node referece
 node *insert_beginning(int data, node *head)
 {
     node *add;
+    add = new node;
     add->data = data;
     add->next = head;
     return add;
