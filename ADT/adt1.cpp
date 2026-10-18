@@ -1,4 +1,4 @@
-// ARRAY AS AN ABSTRACT DATA TYPE(ADT)
+//ARRAY AS AN ABSTRACT DATA TYPE(ADT)
 #include <iostream>
 using namespace std;
 struct myArray
@@ -16,19 +16,19 @@ void createArray(struct myArray *a, int totalsize, int usedsize)
 void show(myArray *a, int usedsize)
 {
     int i;
-    for (i = 0; i < usedsize; i++)
+    for(i=0;i<usedsize;i++)
     {
-        cout << a->p[i] << " ";
+        cout<<a->p[i]<<" ";
     }
 }
 
-void get(myArray *a, int usedsize)
+void get(myArray *a,int usedsize)
 {
     int i;
-    for (i = 0; i < usedsize; i++)
+    for(i=0;i<usedsize;i++)
     {
-        cout << "Enter element " << (i + 1) << ": ";
-        cin >> a->p[i];
+        cout<<"Enter element "<<(i+1)<<": ";
+        cin>>a->p[i];
     }
 }
 
