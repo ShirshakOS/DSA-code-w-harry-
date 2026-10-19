@@ -20,27 +20,37 @@ void traverse(struct node *ptr)
 
 struct node *delete_node_at_index(struct node *head, int index)
 {
-    struct node *ptr, *p;
-    ptr = head;
-    p = head;
+    struct node *ptr;
 
+    ptr = head;
     int i = 0;
     while (i != index - 1)
     {
         ptr = ptr->next;
         i++;
     }
+
+    // Now the node pointer(ptr) points at the address of the node that has index one less of the passed index
+
+    /* 
+
+    ***self tried works but not optimal***
+
     i = 0;
     while (i != index)
     {
         p = p->next;
         i++;
     }
+    ***    ****
+    */
 
-    // Now the node pointer points at the address of the node that has index one less of the passed index
-
+    struct node *p;
+    
+    p = ptr->next;
     ptr->next = p->next;
     delete p;
+
     return head;
 }
 
