@@ -61,7 +61,6 @@ int main()
 
     fourth->data = 88;
     fourth->next = NULL;
-
     cout << "Before insertion:\n";
     traverse(head);
 

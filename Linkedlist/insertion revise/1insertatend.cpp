@@ -54,7 +54,7 @@ int main()
     third->data = 222;
     third->next = fourth;
 
-    fourth->data = 77;
+    fourth->data = 77
     fourth->next = NULL;
 
     cout << "Before insertion:\n";

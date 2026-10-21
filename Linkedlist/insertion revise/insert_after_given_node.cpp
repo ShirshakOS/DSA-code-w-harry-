@@ -44,7 +44,6 @@ int main()
 
     second->data = 323;
     second->next = third;
-
     third->data = 90;
     third->next = NULL;
 
