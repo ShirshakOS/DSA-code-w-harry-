@@ -43,9 +43,11 @@ void display_stack(struct stack *ptr)
 int main()
 {
     struct stack *p;
+    p=new struct stack;
     p->size = 5;
     p->top = -1;
     p->arr = new int[p->size];
+    
 
     push(33, p);
 
