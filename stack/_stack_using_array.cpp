@@ -38,9 +38,12 @@ int isFull(struct stack *ptr)
 int main()
 {
     struct stack *s;
+    s=new struct stack;
     s->top = -1;
     s->size = 6;
     s->arr = new int[s->size];
+
+    cout<<"Stack has been created\n";
 
     if (isEmpty(s))
     {
