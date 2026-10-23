@@ -20,15 +20,18 @@ int isEmpty(struct stack *p)
     }
 }
 
-void pop(struct stack *p)
+int pop(struct stack *p)
 {
     if (isEmpty(p))
     {
-        cout << "The stack is empty\n";
+        cout << "Stack underflow\n";
+        return -1;
     }
     else
     {
+        int value = p->arr[p->top];
         p->top--;
+        return value;
     }
 }
 
@@ -43,6 +46,7 @@ void display_stack(stack *ptr)
 int main()
 {
     stack *s;
+    s = new struct stack;
     s->size = 4;
     s->top = -1;
     s->arr = new int[s->size];
@@ -59,7 +63,12 @@ int main()
     cout << "Before:\n";
     display_stack(s);
 
-    pop(s);
+    cout << "Poped " << pop(s) << " from the stack\n";
+
+    cout << "After:\n";
+    display_stack(s);
+
+    cout << "Poped " << pop(s) << " from the stack\n";
 
     cout << "After:\n";
     display_stack(s);
