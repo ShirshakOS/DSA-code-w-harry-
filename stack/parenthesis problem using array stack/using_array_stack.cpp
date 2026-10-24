@@ -26,21 +26,32 @@ void push(char x, stack *ptr)
     ptr->arr[ptr->top] = x;
 }
 
-void pop(stack **ptr)
+char pop(stack *ptr)
 {
-    if (isEmpty(*ptr))
+    if (isEmpty(ptr))
     {
         cout << "Stack Underflow\n";
+        return -1;
     }
     else
     {
-        (*ptr)->top--;
+        char value = ptr->arr[ptr->top];
+        (ptr)->top--;
+        return value;
     }
 }
 
-int parenthesisMatch(char *exp, stack *ptr)
+int parenthesisMatch(char *exp)
 {
+    struct stack *ptr;
+    ptr = new stack;
+    ptr->size = 100;
+    ptr->top = -1;
+    ptr->arr = new char[ptr->size];
+    // stack created
+
     int i;
+
     for (i = 0; exp[i] != '\0'; i++)
     {
         if (exp[i] == '(')
@@ -54,31 +65,30 @@ int parenthesisMatch(char *exp, stack *ptr)
                 cout << "Stack underflow\n";
                 return 0;
             }
-            pop(&ptr);
+            pop(ptr);
         }
     }
     if (isEmpty(ptr))
     {
+        delete[] ptr->arr;
+        delete ptr;
         return 1;
     }
     else
     {
+        delete[] ptr->arr;
+        delete ptr;
         return 0;
     }
 }
 
 int main()
 {
-    stack *sp;
-    sp = new stack;
-    sp->size = 100;
-    sp->top = -1;
-    sp->arr = new char[sp->size];
-    // stack created
 
-    char exp[] = ")3-2(+22";
+    char exp[] = "(3-2)+22";
 
-    if (parenthesisMatch(exp, sp))
+    //check if the stack is empty 
+    if (parenthesisMatch(exp))
     {
         cout << "Valid expression bro";
     }
