@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string.h>
+// application of stack: infix to postfix
 using namespace std;
 
 struct stack
