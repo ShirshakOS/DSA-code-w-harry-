@@ -135,7 +135,7 @@ char *Infix2Postfix(char *infix)
 
 int main()
 {
-    char infix[] = "a+b-c*d";
+    char infix[] = "a+b-c*d"; // infix expression
     cout << Infix2Postfix(infix) << endl;
     return 0;
 }
