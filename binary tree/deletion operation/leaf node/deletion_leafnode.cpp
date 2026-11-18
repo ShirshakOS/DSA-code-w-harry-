@@ -51,39 +51,42 @@ node *search(node *root, int key)
 void deletion(node **root, int key)
 {
     node *n;
-    n = search(*root, key);
-    if (n != NULL)
+    n = search(*root, key); //search the node to check if the node exists
+    if (n != NULL) //run this loop of the node exists(i.e the search function returns NULL)
     {
-        if (root == NULL)
+        if (root == NULL) // for handling empty tree
         {
             cout << "Empty tree\n";
             return;
         }
         node *prev, *n;
         n = *root;
-        while (n->data != key)
+        while (n->data != key) // run the loop until the data of current node is equal to the value of key
         {
-            prev = n;
-            if (n->data > key)
+            prev = n; // also track the node previous to the current node
+            if (n->data > key) // if the key is less than the data of current node then go to the left node
             {
                 n = n->left;
             }
-            else
+            else // else go to the right node
             {
                 n = n->right;
             }
         }
-        if (key < prev->data)
+
+        // by the time loop ends we are in the leaf node that we want to delete
+
+        if (key < prev->data)  //if the data of the previous node is greater than key then set the left of previous node to NULL
         {
             prev->left = NULL;
         }
-        else
+        else // if the data of the previous node is lesser than key then set the right of the previous node to NULL
         {
             prev->right = NULL;
         }
-        delete n;
+        delete n; // deallocate the memory of node that we want to delete
     }
-    else
+    else //if the node doesn't exists(i.e the search function returns NULL)
     {
         cout << key << " not found in the binary search tree\n";
         return;
@@ -92,6 +95,16 @@ void deletion(node **root, int key)
 
 int main()
 {
+
+                /*
+                         8
+                        /\
+                       3  10
+                      /\   \
+                     1 6   14
+                      /\   /
+                     4 7  13
+                */
     node *root, *n1, *n2, *n3, *n4, *n5, *n6, *n7, *n8;
     root = createnode(8);
     n1 = createnode(1);
