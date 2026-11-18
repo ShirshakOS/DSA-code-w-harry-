@@ -58,35 +58,39 @@ void deletion(node **root, int key)
         node *x;
         x = *root;
         node *prev = NULL;
-        while (x->data != key)
+        while (x->data != key)  // run the loop until we are the node that we want to delete
         {
-            prev = x;
-            if (x->data > key)
+            prev = x; //track the node that we were previously in 
+            if (x->data > key) //go left if the key is lesser than the data of current node
             {
                 x = x->left;
             }
-            else
+            else // go right if the key is greater than the data of current node
             {
                 x = x->right;
             }
         }
-        if (x->data > prev->data)
+        if (x->data > prev->data) // if the data of previous node is lesser than data of current node then...
         {
-            prev->right = x->right;
+            prev->right = x->right; // set the right of previous node to the right of current node
+                                    // we are replacing the node we want to delete by its inorder consecutive greater node
             node *i;
+            //now the replacing node needs to have its sibling
+            // we do that by...
             i = x->right;
             i->left = x->left;
         }
-        else
+        else// else if the data of previous node is greater than data of current node then..
         {
+            // replace the node we want to delete by its inorder consecutive lesser node
             prev->left = x->left;
             node *i;
             i = x->left;
             i->right = x->right;
         }
-        delete x;
+        delete x; // deallocate then memory of the node we want to delete
     }
-    else
+    else // if the node does not exists
     {
         cout << key << " not found\n";
         return;
@@ -95,6 +99,15 @@ void deletion(node **root, int key)
 
 int main()
 {
+                    /*
+                         8
+                        /\
+                       3  10
+                      /\   \
+                     1 6   14
+                      /\   /
+                     4 7  13
+                */
     node *root, *n1, *n2, *n3, *n4, *n5, *n6, *n7, *n8;
     root = createnode(8);
     n1 = createnode(3);
