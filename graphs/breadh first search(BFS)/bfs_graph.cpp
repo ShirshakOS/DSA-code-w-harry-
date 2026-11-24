@@ -1,9 +1,9 @@
-// breadth first search graph traversal algorithm 
+// breadth first search graph traversal algorithm
 
 #include <iostream>
 using namespace std;
 
-struct queue
+struct queue // bfs uses  queue
 {
     int size;
     int f;
@@ -52,7 +52,7 @@ int main()
 {
     queue *q = new queue;
 
-    q->size = 400;
+    q->size = 100;
     q->f = q->r = 0;
     q->arr = new int[q->size];
 
@@ -69,8 +69,7 @@ int main()
         {1, 1, 1, 0, 0, 0, 0},
         {0, 0, 1, 1, 0, 1, 1},
         {0, 0, 0, 0, 1, 0, 0},
-        {0, 0, 0, 0, 1, 0, 0}
-    };
+        {0, 0, 0, 0, 1, 0, 0}};
 
     cout << i << " ";
     visited[i] = 1;
